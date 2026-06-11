@@ -1,0 +1,417 @@
+// data/mockData.ts
+import { ROOM_BADGE_COLORS } from "@/constants";
+import { formatDate } from "@/lib/utils";
+import type { Agency, UmrahForecast } from "@/types";
+
+export { formatDate, ROOM_BADGE_COLORS as ROOM_COLORS };
+
+// ─── Internal user type with password (never exposed to UI) ───────────────────
+// We attach _password as a non-typed field so authStore can validate it
+// without leaking the password through the User interface.
+
+export const MOCK_USERS = [
+  {
+    id: "u1",
+    name: "Admin Kounouz",
+    email: "admin@kounouz.com",
+    role: "admin" as const,
+    createdAt: new Date(),
+    _password: "admin123",
+    agencyId: undefined,
+  },
+  {
+    id: "bo1",
+    name: "Backoffice Sarah",
+    email: "sarah@kounouz.com",
+    role: "backoffice" as const,
+    createdAt: new Date(),
+    _password: "backoffice123",
+    agencyId: undefined,
+  },
+  {
+    id: "ag1u",
+    name: "Agence Tunis",
+    email: "agence@kounouz.com",
+    role: "agence" as const,
+    createdAt: new Date(),
+    _password: "agence123",
+    agencyId: "ag1",
+  },
+  {
+    id: "u2",
+    name: "Ahmed Ben Ali",
+    email: "ahmed@kounouz.com",
+    role: "rabatteur" as const,
+    createdAt: new Date(),
+    _password: "rabatteur123",
+    agencyId: undefined,
+  },
+  {
+    id: "u3",
+    name: "Sana Trabelsi",
+    email: "sana@kounouz.com",
+    role: "rabatteur" as const,
+    createdAt: new Date(),
+    _password: "rabatteur123",
+    agencyId: undefined,
+  },
+];
+
+// ─── Agencies ─────────────────────────────────────────────────────────────────
+export const MOCK_AGENCIES: Agency[] = [
+  {
+    id: "ag1",
+    name: "Kounouz Travel Tunis Centre",
+    city: "Tunis",
+    address: "12 Avenue Habib Bourguiba, Tunis",
+    phone: "+216 71 123 456",
+    email: "tunis@kounouz.com",
+    managerName: "Karim Mansouri",
+    active: true,
+  },
+  {
+    id: "ag2",
+    name: "Kounouz Travel Sfax",
+    city: "Sfax",
+    address: "45 Rue de la République, Sfax",
+    phone: "+216 74 234 567",
+    email: "sfax@kounouz.com",
+    managerName: "Leila Chaari",
+    active: true,
+  },
+  {
+    id: "ag3",
+    name: "Kounouz Travel Sousse",
+    city: "Sousse",
+    address: "8 Avenue du 14 Janvier, Sousse",
+    phone: "+216 73 345 678",
+    email: "sousse@kounouz.com",
+    managerName: "Mohamed Gharbi",
+    active: true,
+  },
+  {
+    id: "ag4",
+    name: "Kounouz Travel Nabeul",
+    city: "Nabeul",
+    address: "22 Avenue Habib Thameur, Nabeul",
+    phone: "+216 72 456 789",
+    email: "nabeul@kounouz.com",
+    managerName: "Fatma Riahi",
+    active: true,
+  },
+];
+
+// ─── Umrah Forecasts ─────────────────────────────────────────────────────────
+export const MOCK_FORECASTS: UmrahForecast[] = [
+  {
+    id: 8583,
+    packageUmrahId: 8233,
+    virtualStock: 260,
+    note: "",
+    seasonId: 1,
+    disponibilityId: 8700,
+    disponibility: {
+      id: 8700,
+      date: "2026-03-27T00:00:00",
+      returnDate: "0001-01-01T00:00:00",
+      onStock: 260,
+      packageUmrahId: 8233,
+      pnr: null,
+      airlineId: 3512,
+      commission: 400,
+      b2Bcommission: 400,
+      airline: {
+        id: 3512,
+        name: "Tunisair",
+        fullName: "Tunisair",
+        iata: "TU",
+        logo: "https://images.kiwi.com/airlines/64/TU.png",
+      },
+    },
+    prices: [
+      {
+        id: 15203,
+        priceUmrahId: 11894,
+        forcastUmrahId: 8583,
+        priceUmrah: {
+          id: 11894,
+          packageUmrahId: 8233,
+          designation: null,
+          baseCost: 2657.43,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور الصباح",
+          arrangementMadinahDesignation: "Chambre double",
+          arrangementMakkahDesignation: "Chambre double",
+          price: 6700,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15204,
+        priceUmrahId: 11895,
+        forcastUmrahId: 8583,
+        priceUmrah: {
+          id: 11895,
+          packageUmrahId: 8233,
+          designation: null,
+          baseCost: 2654.11,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور الصباح",
+          arrangementMadinahDesignation: "Chambre quadruple",
+          arrangementMakkahDesignation: "Chambre quadruple",
+          price: 5500,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15205,
+        priceUmrahId: 11897,
+        forcastUmrahId: 8583,
+        priceUmrah: {
+          id: 11897,
+          packageUmrahId: 8233,
+          designation: null,
+          baseCost: 2655.17,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور الصباح",
+          arrangementMadinahDesignation: "Chambre triple",
+          arrangementMakkahDesignation: "Chambre triple",
+          price: 5900,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15206,
+        priceUmrahId: 11896,
+        forcastUmrahId: 8583,
+        priceUmrah: {
+          id: 11896,
+          packageUmrahId: 8233,
+          designation: null,
+          baseCost: 2652.45,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "اعمار كراند او المنار",
+          arrangementMadinahDesignation: "Chambre quadruple",
+          arrangementMakkahDesignation: "Chambre quadruple",
+          price: 4900,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15207,
+        priceUmrahId: 11898,
+        forcastUmrahId: 8583,
+        priceUmrah: {
+          id: 11898,
+          packageUmrahId: 8233,
+          designation: null,
+          baseCost: 2652.98,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "اعمار كراند او المنار",
+          arrangementMadinahDesignation: "Chambre triple",
+          arrangementMakkahDesignation: "Chambre triple",
+          price: 5300,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15208,
+        priceUmrahId: 11899,
+        forcastUmrahId: 8583,
+        priceUmrah: {
+          id: 11899,
+          packageUmrahId: 8233,
+          designation: null,
+          baseCost: 2654.11,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "اعمار كراند او المنار",
+          arrangementMadinahDesignation: "Chambre double",
+          arrangementMakkahDesignation: "Chambre double",
+          price: 6000,
+          isHidden: false,
+        },
+      },
+    ],
+  },
+  {
+    id: 8632,
+    packageUmrahId: 8236,
+    virtualStock: 50,
+    note: "",
+    seasonId: 1,
+    disponibilityId: 8703,
+    disponibility: {
+      id: 8703,
+      date: "2026-03-21T00:00:00",
+      returnDate: "0001-01-01T00:00:00",
+      onStock: 140,
+      packageUmrahId: 8236,
+      pnr: null,
+      airlineId: 3512,
+      commission: 400,
+      b2Bcommission: 400,
+      airline: {
+        id: 3512,
+        name: "Tunisair",
+        fullName: "Tunisair",
+        iata: "TU",
+        logo: "https://images.kiwi.com/airlines/64/TU.png",
+      },
+    },
+    prices: [
+      {
+        id: 15140,
+        priceUmrahId: 11918,
+        forcastUmrahId: 8632,
+        priceUmrah: {
+          id: 11918,
+          packageUmrahId: 8236,
+          designation: null,
+          baseCost: 2657.43,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور",
+          arrangementMadinahDesignation: "Chambre double",
+          arrangementMakkahDesignation: "Chambre double",
+          price: 6950,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15141,
+        priceUmrahId: 11919,
+        forcastUmrahId: 8632,
+        priceUmrah: {
+          id: 11919,
+          packageUmrahId: 8236,
+          designation: null,
+          baseCost: 2654.11,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور",
+          arrangementMadinahDesignation: "Chambre quadruple",
+          arrangementMakkahDesignation: "Chambre quadruple",
+          price: 5490,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15142,
+        priceUmrahId: 11920,
+        forcastUmrahId: 8632,
+        priceUmrah: {
+          id: 11920,
+          packageUmrahId: 8236,
+          designation: null,
+          baseCost: 2655.17,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور",
+          arrangementMadinahDesignation: "Chambre triple",
+          arrangementMakkahDesignation: "Chambre triple",
+          price: 5850,
+          isHidden: false,
+        },
+      },
+    ],
+  },
+  {
+    id: 8700,
+    packageUmrahId: 8250,
+    virtualStock: 80,
+    note: "",
+    seasonId: 1,
+    disponibilityId: 8750,
+    disponibility: {
+      id: 8750,
+      date: "2026-04-10T00:00:00",
+      returnDate: "0001-01-01T00:00:00",
+      onStock: 80,
+      packageUmrahId: 8250,
+      pnr: null,
+      airlineId: 3520,
+      commission: 350,
+      b2Bcommission: 350,
+      airline: {
+        id: 3520,
+        name: "Nouvelair",
+        fullName: "Nouvelair",
+        iata: "BJ",
+        logo: "https://images.kiwi.com/airlines/64/BJ.png",
+      },
+    },
+    prices: [
+      {
+        id: 15300,
+        priceUmrahId: 12000,
+        forcastUmrahId: 8700,
+        priceUmrah: {
+          id: 12000,
+          packageUmrahId: 8250,
+          designation: null,
+          baseCost: 2700,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور الصباح",
+          arrangementMadinahDesignation: "Chambre double",
+          arrangementMakkahDesignation: "Chambre double",
+          price: 7200,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15301,
+        priceUmrahId: 12001,
+        forcastUmrahId: 8700,
+        priceUmrah: {
+          id: 12001,
+          packageUmrahId: 8250,
+          designation: null,
+          baseCost: 2680,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور الصباح",
+          arrangementMadinahDesignation: "Chambre triple",
+          arrangementMakkahDesignation: "Chambre triple",
+          price: 6100,
+          isHidden: false,
+        },
+      },
+      {
+        id: 15302,
+        priceUmrahId: 12002,
+        forcastUmrahId: 8700,
+        priceUmrah: {
+          id: 12002,
+          packageUmrahId: 8250,
+          designation: null,
+          baseCost: 2660,
+          hotelMadinahName: "فندق المدينة",
+          hotelMakkahName: "الشهداء+فطور الصباح",
+          arrangementMadinahDesignation: "Chambre quadruple",
+          arrangementMakkahDesignation: "Chambre quadruple",
+          price: 5600,
+          isHidden: false,
+        },
+      },
+    ],
+  },
+];
+
+/** Group a forecast's price options by Makkah hotel name */
+export function groupPricesByHotel(forecast: UmrahForecast) {
+  const groups: Record<string, typeof forecast.prices> = {};
+  for (const p of forecast.prices) {
+    if (p.priceUmrah.isHidden) continue;
+    const key = p.priceUmrah.hotelMakkahName;
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(p);
+  }
+  return Object.entries(groups).map(([hotelMakkah, prices]) => ({
+    hotelMakkah,
+    hotelMadinah: prices[0].priceUmrah.hotelMadinahName,
+    prices,
+  }));
+}
+
+export const DEMO_CREDENTIALS = {
+  admin: { email: "admin@kounouz.com", password: "admin123" },
+  backoffice: { email: "sarah@kounouz.com", password: "backoffice123" },
+  agence: { email: "agence@kounouz.com", password: "agence123" },
+  rabatteur: { email: "ahmed@kounouz.com", password: "rabatteur123" },
+};
