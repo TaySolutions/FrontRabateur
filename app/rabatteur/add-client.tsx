@@ -137,7 +137,7 @@ export default function AddClientScreen() {
           cinNumber,
           cinImageUri: cinImageUri ?? undefined,
         };
-
+    console.log("rabatteurId", user?.id);
     addClient({
       firstName,
       lastName,

@@ -156,17 +156,15 @@ export default function CommissionsScreen() {
 
   // Group by rabatteur
   const grouped = rabatteurs
-    .filter((r) => r.agencyIds.includes(agencyId))
+    //.filter((r) => r.agencyIds.includes(agencyId))
     .map((r) => ({
       rabatteur: r,
       clients: agencyClients.filter((c) => c.rabatteurId === r.id),
     }))
     .filter((g) => g.clients.length > 0);
-  console.log("agencyid,", agencyId);
-  console.log("rabatteur", rabatteurs);
-  console.log("agencyclients", agencyClients);
-  console.log("grouped", grouped);
-
+  //console.log("grouped", grouped);
+  console.log("rabattuer", rabatteurs);
+  //console.log("agencyclients", agencyClients);
   const [expanded, setExpanded] = useState<string[]>(
     grouped.map((g) => g.rabatteur.id),
   );

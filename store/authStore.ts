@@ -22,7 +22,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     const found = MOCK_USERS.find(
       (u) => u.email === email && (u as any)._password === password,
     );
-
+    console.log("found", found);
     if (found) {
       set({ user: found, isLoading: false });
       return true;

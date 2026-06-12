@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 const INITIAL_RABATTEURS: RabatteurProfile[] = [
   {
-    id: "r1",
+    id: "u1",
     firstName: "Ahmed",
     lastName: "Ben Ali",
     email: "ahmed@kounouz.com",
@@ -18,7 +18,7 @@ const INITIAL_RABATTEURS: RabatteurProfile[] = [
     updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10),
   },
   {
-    id: "r2",
+    id: "u2",
     firstName: "Sana",
     lastName: "Trabelsi",
     email: "sana@kounouz.com",
@@ -33,7 +33,7 @@ const INITIAL_RABATTEURS: RabatteurProfile[] = [
     updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5),
   },
   {
-    id: "r3",
+    id: "u3",
     firstName: "Khalil",
     lastName: "Mejri",
     email: "khalil@kounouz.com",

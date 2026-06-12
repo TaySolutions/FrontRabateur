@@ -87,6 +87,7 @@ export default function AssignPackageScreen() {
     setSelectedPriceId(null);
     setSelectedPriceEntry(null);
     setSelectedAgencyId(agencyId); // pre-fill agency
+    console.log(agencyId);
   };
 
   const selectPrice = (entry: UmrahForecast["prices"][0]) => {
