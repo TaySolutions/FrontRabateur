@@ -243,7 +243,11 @@ export default function AssignPackageScreen() {
                         }
                       >
                         {sel && (
-                          <Ionicons name="checkmark" size={18} color="#fff" />
+                          <Ionicons
+                            name="checkmark-outline"
+                            size={18}
+                            color="#000"
+                          />
                         )}
                       </View>
                     </View>
@@ -418,9 +422,9 @@ export default function AssignPackageScreen() {
                             >
                               {sel && (
                                 <Ionicons
-                                  name="checkmark"
+                                  name="checkmark-outline"
                                   size={16}
-                                  color="#fff"
+                                  color="#000"
                                 />
                               )}
                             </View>
@@ -470,7 +474,11 @@ export default function AssignPackageScreen() {
                           className={`w-7 h-7 rounded-lg border-2 items-center justify-center ${val ? "bg-primary-500 border-primary-500" : "border-slate-300"}`}
                         >
                           {val && (
-                            <Ionicons name="checkmark" size={16} color="#fff" />
+                            <Ionicons
+                              name="checkmark-outline"
+                              size={16}
+                              color="#000"
+                            />
                           )}
                         </View>
                         <Text className="text-slate-600 text-base font-medium">
@@ -647,11 +655,7 @@ export default function AssignPackageScreen() {
                 </Text>
               ) : (
                 <>
-                  <Ionicons
-                    name="checkmark-circle-outline"
-                    size={26}
-                    color="#000"
-                  />
+                  <Ionicons name="checkmark-outline" size={26} color="#000" />
                   <Text className="text-white font-bold text-xl">
                     Confirmer le forfait
                   </Text>

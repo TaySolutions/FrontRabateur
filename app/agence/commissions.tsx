@@ -5,12 +5,12 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-    Alert,
-    ScrollView,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Alert,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 // ─── Commission input row ─────────────────────────────────────────────────────
@@ -162,6 +162,10 @@ export default function CommissionsScreen() {
       clients: agencyClients.filter((c) => c.rabatteurId === r.id),
     }))
     .filter((g) => g.clients.length > 0);
+  console.log("agencyid,", agencyId);
+  console.log("rabatteur", rabatteurs);
+  console.log("agencyclients", agencyClients);
+  console.log("grouped", grouped);
 
   const [expanded, setExpanded] = useState<string[]>(
     grouped.map((g) => g.rabatteur.id),
