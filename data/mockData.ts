@@ -38,7 +38,7 @@ export const MOCK_USERS = [
     agencyId: "ag1",
   },
   {
-    id: "u2",
+    id: "r2",
     name: "Ahmed Ben Ali",
     email: "ahmed@kounouz.com",
     role: "rabatteur" as const,
@@ -47,7 +47,7 @@ export const MOCK_USERS = [
     agencyId: undefined,
   },
   {
-    id: "u3",
+    id: "r3",
     name: "Sana Trabelsi",
     email: "sana@kounouz.com",
     role: "rabatteur" as const,
